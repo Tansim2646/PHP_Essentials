@@ -93,4 +93,26 @@ echo $originalString;
 
 // What is we want to use multiple delipmeter in our string,we can use strtok function then or regular expression
 
-// In terms of 
+// In terms of using strtok fucntion we cant store the value because we uses the value as the iterator
+
+$iterator = strtok($newString," ,");
+while($iterator !== false)
+{
+    echo $iterator;
+    echo PHP_EOL;
+    $iterator = strtok(" ,");
+}
+
+// Splitting string by using regex in this case it will be stored in an array
+// echo PHP_EOL;
+// echo PHP_EOL;
+// $stringParts = preg_split("/\s|,",$newString);
+// echo $stringParts;
+//  How many times a particular character is appeared in a string using php
+
+$newStringTwo = "Hello There, This is Tansim Anjum Anim";
+$chars =count_chars($newStringTwo,3);
+for($m=0;$m<strlen($chars);$m++){
+    printf("%s appeared %d \n",$chars[$m],substr_count($newStringTwo,$chars[$m]));
+
+}
