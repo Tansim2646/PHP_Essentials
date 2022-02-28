@@ -116,3 +116,34 @@ for($m=0;$m<strlen($chars);$m++){
     printf("%s appeared %d \n",$chars[$m],substr_count($newStringTwo,$chars[$m]));
 
 }
+
+// How to find something in an array
+
+$stringForCheck = "Quick brown fox jumped over the lazy dog";
+$offset = strpos($stringForCheck,"fox");
+if($offset){
+    echo "Word is found in position - ".$offset;
+}
+// What is we want to make it case insensitive
+$stringForCheck2 = "Quick brown fox jumped over the lazy dog";
+$offset = stripos($stringForCheck,"Fox");
+if($offset){
+    echo "Word is found in position - ".$offset;
+}
+// The problem with strpos and why we need to check type of it
+$stringForCheck3 = "Quick brown fox jumped over the lazy dog";
+$offset3 = strpos($stringForCheck3,"Quick");
+if($offset3 !== false){
+    echo "Word is found in position - ".$offset3.PHP_EOL;
+}else{
+    echo "Word is not available in this string\n";
+};
+echo PHP_EOL;
+// Checking a substring from the reverse corner
+$stringForCheck4 = "Quick brown fox jumped over the lazy dog";
+$offset4 = strrpos($stringForCheck4,"fox");
+if($offset4 !== false){
+    echo "Word is found in position - ".$offset4.PHP_EOL;
+}else{
+    echo "Word is not available in this string\n";
+};
