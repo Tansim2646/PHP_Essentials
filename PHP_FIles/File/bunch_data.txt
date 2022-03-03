@@ -1,4 +1,4 @@
 Tansim,Anjum,26,16/07/1995,Meherpur
 Tanvir,Anjum,34,14/01/1987,Meherpur
 Morsalin,Mabir,24,28/08/1997,Dhaka
-Areeb,Ahmed Quaraishi,26,02/02/1996,Dhaka
+Areeb,"Ahmed Quaraishi",26,02/02/1996,Dhaka

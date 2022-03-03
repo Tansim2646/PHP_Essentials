@@ -30,17 +30,62 @@ $students = [
         'birthplace' => 'Dhaka'
     )
     ];
-print_r($students);
 
-/*$fp = fopen($fileName,'w');
+    
+
+$fp = fopen($fileName,'w');
 foreach($students as $student){
-    $data = sprintf("%s,%s,%s,%s,%s\n",$student['fname'],$student['lname'],$student['age'],$student['dateofbirth'],$student['birthplace']);
-    fwrite($fp,$data); 
+    // ----------- Since we are adding data in csv format we can get advantage of using it csv function ------------------
+
+    // $data = sprintf("%s,%s,%s,%s,%s\n",$student['fname'],$student['lname'],$student['age'],$student['dateofbirth'],$student['birthplace']);
+    fputcsv($fp,$student);
+
 };
-fclose($fp);*/
-$fp = fopen($fileName,'r');
-while($line = fgets($fp)){
-    $data = explode(",",$line);
-   printf("First name = %s\n Last name = %s\n Age = %s\n Date of Birth = %s\n Birthplace = %s\n",$data[0],$data[1],$data[2],$data[3],$data[4]);
+fclose($fp);
+
+// <------------------ In this section we are reading the data ------------------------------------ >
+
+
+// $fp = fopen($fileName,'r');
+// while($line = fgetcsv($fp)){
+// //     $data = explode(",",$line);
+//    printf("First name = %s\n Last name = %s\n Age = %s\n Date of Birth = %s\n Birthplace = %s\n",$line[0],$line[1],$line[2],$line[3],$line[4]);
+
+// }
+// fclose($fp);
+
+// // <-----------------lets we want to add a new data in the file -------------------------->
+
+// Since we want to append the data so it is better for us to open this file in read format
+// $newStudent = array(
+//     'fname' => "Nowsahd",
+//     'lname' => "kabir",
+//     'age'  => '29',
+//     'dateofbirth' => '19/05/1989',
+//     'birthplace' => 'Mymensingh',
+// );
+
+// // Now lets open the file again
+// $fp = fopen($fileName,'a');
+// fputcsv($fp,$newStudent);
+// fclose($fp);
+
+
+// // <----------------------  How to delete a particular data from a file --------------->
+
+// // In order to delete a particular data we need to read the entire file at oncce
+
+// // The data we get after reading the file at once
+
+$fileData = file($fileName);
+// By using uset function we can delete data from a particular index
+unset($fileData[4]);
+print_r($fileData);
+$fp = fopen($fileName,"w");
+foreach($fileData as $file){
+    fwrite($fp,$file);
+
 }
 fclose($fp);
+
+
