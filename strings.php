@@ -147,3 +147,21 @@ if($offset4 !== false){
 }else{
     echo "Word is not available in this string\n";
 };
+
+
+// Replace within a string and
+
+$newString = 'Quick Brown Fox jumps over the lazy dog';
+$replacedString = str_ireplace('brown','red',$newString,$count);
+echo PHP_EOL;
+echo $replacedString;
+echo PHP_EOL;
+echo 'Total strings raplaced:'.$count;
+
+// What if we want to change multiple value in a string
+
+$replacedString = str_ireplace(array('brown','fox','dog'),array('red','leopard','cat'),$newString,$count);
+echo PHP_EOL;
+echo $replacedString;
+echo PHP_EOL;
+echo 'Total strings replaced'.$count;
