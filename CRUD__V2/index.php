@@ -1,7 +1,7 @@
 <!-- PHP -->
 <?php
 error_reporting(E_ERROR | E_PARSE);
-session_name("Tansim");
+session_start();
 $error = '0';
 $seed = false;
 require_once('/Users/anim/Desktop/PHP_Projects/CRUD__V2/inc/functions.php');
@@ -198,9 +198,10 @@ if('delete'==$task){
              <?php endif; ?>   
             
 
-          <h1><?php echo $_SESSION['username'] ?></h1>
+          
         
     </div>
+    
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./Assets/JS/script.js"></script>
 

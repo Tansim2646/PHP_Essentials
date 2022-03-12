@@ -1,6 +1,5 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
-session_name("Tansim");
 session_start();
 $error = 0;
 // session_destroy();

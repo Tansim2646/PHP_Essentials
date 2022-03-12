@@ -1,4 +1,8 @@
+
+
 <p>
+
+
     
     <div class="float-left">
 
@@ -8,7 +12,11 @@
 
     </div>
     <div class="float-right">
-           <a href="auth.php">Login</a>
+           <?php if($_SESSION['loggedIn']==1):?>
+            <a href="./auth.php">Logout</a>
+            <?php else: ?>
+            <a href="./auth.php">Login</a>
+            <?php endif; ?>    
 
     </div>
 </p>
