@@ -1,15 +1,26 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 session_name("Tansim");
 session_start();
 $error = 0;
 // session_destroy();
-
-if(isset($_POST['username']) && isset($_POST['password'])){
-    if($_POST['username'] !== '' && $_POST['password'] !== '' && 'admin' === $_POST['username'] && 'adminpro' === $_POST['password']){
-        $_SESSION['loggedIn'] = true;
-    }else{
-        $error =1;
-        $_SESSION['loggedIn'] = false;
+$username = htmlspecialchars($_POST['username']);
+$password = htmlspecialchars($_POST['password']);
+// File Reading
+$fp = fopen('./data/users.txt','r');
+if($username && $password){
+    while($data = fgetcsv($fp)){
+        
+        if($data[0] == $username && $data[1] == sha1($password)){
+            $_SESSION['loggedIn'] = true;
+            $_SESSION['username'] = $username;
+            header('location:index.php');
+        }
+    }
+    if(!$_SESSION['loggedIn']){
+            $error =1;
+            $_SESSION['loggedIn'] = false;
+    
     }
 }
 // logout funtionality
