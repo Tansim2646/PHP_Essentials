@@ -24,10 +24,10 @@ if($username && $password){
     }
 }
 // logout funtionality
-if(isset($_POST['logout'])  && $_POST['logout']){
-    
+if(isset($_GET['logout'])){
     $_SESSION['loggedIn'] = false;
     session_destroy();
+    header('location:index.php');
 }
 
 ?>
