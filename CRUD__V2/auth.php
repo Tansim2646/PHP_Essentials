@@ -8,12 +8,16 @@ $password = htmlspecialchars($_POST['password']);
 // File Reading
 $fp = fopen('./data/users.txt','r');
 if($username && $password){
+    $_SESSION['loggedIn'] = false;
+    $_SESSION['username'] = false;
+    $_SESSION['role'] = false;
     while($data = fgetcsv($fp)){
         
         if($data[0] == $username && $data[1] == sha1($password)){
             
             $_SESSION['loggedIn'] = true;
             $_SESSION['username'] = $username;
+            $_SESSION['role'] = $data[2];
             header('location:index.php');
         }
     }
@@ -25,7 +29,7 @@ if($username && $password){
 }
 // logout funtionality
 if(isset($_GET['logout'])){
-    $_SESSION['loggedIn'] = false;
+    session_unset();
     session_destroy();
     header('location:index.php');
 }

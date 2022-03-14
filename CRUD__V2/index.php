@@ -114,7 +114,9 @@ if('delete'==$task){
                         <th>Name</th>
                         <th>ID</th>
                         <th>Department</th>
+                        <?php if(isAdmin() && isEditor()): ?>
                         <th>Option</th>
+                        <?php endif; ?>
 
                     </tr>
                     <?php foreach($students as $student){
@@ -123,8 +125,13 @@ if('delete'==$task){
                           <td><?php printf("%s %s",$student['fname'],$student['lname']); ?></td>
                           <td><?php echo $student['Id']; ?></td>
                           <td><?php echo $student['Dept']; ?></td>
+                          <?php if(isAdmin()): ?>
                           <td><a href="/CRUD__v2/index.php?task=edit&index=<?php echo $student['index']?>">Edit</a> | <a class="delete" href="/CRUD__v2/index.php?task=delete&index=<?php echo $student['index']?>">Delete</a></td>
-                          
+                          <?php elseif(isEditor()): ?>
+                         <td><a href="/CRUD__v2/index.php?task=edit&index=<?php echo $student['index']?>">Edit</a></td>
+                         <?php endif; ?>
+
+
                         
                         </tr>
 

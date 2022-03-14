@@ -158,3 +158,12 @@ function deleteData($index){
     unset($data[$index-1]);
     putdata($data);
 }
+
+// function for checking admin
+function isAdmin(){
+    return ('admin' == $_SESSION['role']);
+}
+// function for checking editor
+function isEditor(){
+    return ('editor'==$_SESSION['role']);
+}

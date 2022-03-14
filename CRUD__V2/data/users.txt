@@ -1,2 +1,2 @@
-admin,aabbd07a6df94f30c1a663b78b180051a1a8a670
-adminpro,43fc473d03c8ad8faf1d87bb565486d9a058dfc6
+admin,aabbd07a6df94f30c1a663b78b180051a1a8a670,admin
+adminpro,43fc473d03c8ad8faf1d87bb565486d9a058dfc6,editor
